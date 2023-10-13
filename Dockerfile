@@ -2,7 +2,7 @@ FROM aclemons/slackware:15.0
 
 COPY entrypoint.sh /
 
-VOLUME /packages
+VOLUME /build-deps
 VOLUME /slackbuild
 VOLUME /output
 
