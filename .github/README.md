@@ -12,11 +12,26 @@ Environment-variables can be passed to both `.sh`and `.SlackBuild`.
 
 #### Example docker run:
 ```bash
-docker run --rm \
+docker run --rm --name SlackBuilder\
   -v /mnt/user/data/slackpkg/pass/build-deps:/build-deps \
   -v /mnt/user/data/slackpkg/pass/build:/slackbuild \
   -v /mnt/user/data/slackpkg/pass/output:/output \
   -e OUTPUT=/output \
   -e TMP=/tmp \
   ghcr.io/lanjelin/slackbuilder:latest
+```
+
+#### Example .zshrc/.bashrc function
+```bash
+slackbuild () {
+  [[ $# -eq 0 ]] && BD="$PWD" || BD="$(realpath $1)"
+  [[ ! -d "$BD" ]] && echo "Must be a directory" && return 1
+  docker run --rm --name SlackBuilder \
+  -v "$BD/build-deps":"/build-deps" \
+  -v "$BD/slackbuild":"/slackbuild" \
+  -v "$BD/output":"/output" \
+  -e OUTPUT=/output \
+  -e TMP=/tmp \
+  ghcr.io/lanjelin/slackbuilder:latest
+}
 ```
