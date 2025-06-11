@@ -10,7 +10,7 @@ Uses the following pre-defined paths, and things will be execured in listed orde
 - `/logs` - optional directory for logs.  
 
 Environment-variables can be passed to both `.sh`and `.SlackBuild`.  
-Set environment variable `LOGONLY=1` to surpress console output when running.  
+Set environment variable `LOGONLY=1` to suppress console output when running.  
 
 #### Example docker run:
 ```bash
