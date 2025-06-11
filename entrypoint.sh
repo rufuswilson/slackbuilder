@@ -4,7 +4,7 @@
 log_output() {
   local lvl="$1"
   local logfile="$2"
-  if [[ -n "$VERBOSITY" ]] && [[ $lvl -lt $VERBOSITY ]]; then
+  if [[ -n "$VERBOSITY" ]] && [[ $lvl -gt $VERBOSITY ]]; then
     cat >> "/logs/$logfile"
   else
     tee -a "/logs/$logfile"
