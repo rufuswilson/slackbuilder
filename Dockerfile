@@ -5,5 +5,6 @@ COPY entrypoint.sh /
 VOLUME /build-deps
 VOLUME /slackbuild
 VOLUME /output
+VOLUME /logs
 
 ENTRYPOINT ["bash", "entrypoint.sh"]
