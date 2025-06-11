@@ -9,7 +9,8 @@ Uses the following pre-defined paths, and things will be execured in listed orde
 - `/output` - optional directory for outputs.  
 - `/logs` - optional directory for logs.  
 
-Environment-variables can be passed to both `.sh`and `.SlackBuild`.
+Environment-variables can be passed to both `.sh`and `.SlackBuild`.  
+Set environment variable `LOGONLY=1` to surpress console output when running.  
 
 #### Example docker run:
 ```bash
@@ -20,6 +21,7 @@ docker run --rm --name SlackBuilder\
   -v /mnt/user/data/slackpkg/pass/logs:/logs \
   -e OUTPUT=/output \
   -e TMP=/tmp \
+  -e LOGONLY=1 \
   ghcr.io/lanjelin/slackbuilder:latest
 ```
 
